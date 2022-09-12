@@ -1,14 +1,17 @@
-name: commit_checkout
+name: Combine the words
 on: [push]
+
 jobs:
-  external-workflow:
-    runs-on: ubuntu-latest
+  job1:
+    env:
+      BUILD: build
+    runs-on: windows-latest
     steps:
       - name: step 1
         env:
-          platform: the platform
-        run: |
-          echo "The job ID is ${{github.job}}"
-          echo "The name of the event triggered the workflow is ${{github.event_name}}"
-          echo "The name of the workflow is ${{github.workflow}}"
-          echo "The runner of the workflow is ${{runner.os}}"
+          TEST: test
+        run: echo "GitHub Actions is a CI/CD platform that allows you to automate your $env:BUILD $env:TEST pipeline"
+      - name: step 2
+        env:
+          DEPLOY: deployment
+        run: echo "GitHub Actions is a CI/CD platform that allows you to automate your $env:BUILD $env:TEST and $env:DEPLOY pipeline"
