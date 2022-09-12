@@ -1,17 +1,21 @@
-name: Combine the words
+name: Correct phrase
 on: [push]
+
+env:
+  ci_cd: continuous integration and continuous delivery
+  github_actions_task: allows you to automate your build, test, and deployment pipeline
 
 jobs:
   job1:
-    env:
-      BUILD: build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: step 1
-        env:
-          TEST: test
-        run: echo "GitHub Actions is a CI/CD platform that allows you to automate your $env:BUILD $env:TEST pipeline"
-      - name: step 2
-        env:
-          DEPLOY: deployment
-        run: echo "GitHub Actions is a CI/CD platform that allows you to automate your $env:BUILD $env:TEST and $env:DEPLOY pipeline"
+        run: echo "GitHub Actions is a $ci_cd platform that $github_actions_task"
+
+  job2:
+    env:
+      ci_cd: CI/CD
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 1
+        run: echo "GitHub Actions is a $ci_cd platform that $github_actions_task"
