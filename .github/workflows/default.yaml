@@ -1,0 +1,14 @@
+name: commit_checkout
+on: [push]
+jobs:
+  external-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 1
+        env:
+          platform: the platform
+        run: |
+          echo "The job ID is ${{github.job}}"
+          echo "The name of the event triggered the workflow is ${{github.event_name}}"
+          echo "The name of the workflow is ${{github.workflow}}"
+          echo "The runner of the workflow is ${{runner.os}}"
