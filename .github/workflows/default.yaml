@@ -1,14 +1,10 @@
-name: Predefined function
+name: State validations
 on: push
 jobs:
-  job1:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - id: step1
-        run: "echo test=hello >> $GITHUB_OUTPUT"
-      - name: step2
-        if: contains(steps.step1.outputs.test, 'hello')
-        run: echo 'is executed'
-      - name: step3
-        if: contains(steps.step1.outputs.test, 'bye')
-        run: echo 'not executed'
+      - id: generator
+        run: if [[ $((RANDOM % 2)) == 0 ]]; then exit 0; else exit 1; fi
+      - if: ${{ always() }}
+        run: echo ${{ steps.generator.outcome }}
