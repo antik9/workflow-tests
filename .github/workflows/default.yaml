@@ -1,21 +1,14 @@
-name: Correct phrase
-on: [push]
-
-env:
-  ci_cd: continuous integration and continuous delivery
-  github_actions_task: allows you to automate your build, test, and deployment pipeline
-
+name: Predefined function
+on: push
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: step 1
-        run: echo "GitHub Actions is a $ci_cd platform that $github_actions_task"
-
-  job2:
-    env:
-      ci_cd: CI/CD
-    runs-on: ubuntu-latest
-    steps:
-      - name: step 1
-        run: echo "GitHub Actions is a $ci_cd platform that $github_actions_task"
+      - id: step1
+        run: "echo test=hello >> $GITHUB_OUTPUT"
+      - name: step2
+        if: contains(steps.step1.outputs.test, 'hello')
+        run: echo 'is executed'
+      - name: step3
+        if: contains(steps.step1.outputs.test, 'bye')
+        run: echo 'not executed'
