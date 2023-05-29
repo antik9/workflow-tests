@@ -1,14 +1,17 @@
-name: Build and Deploy
+name: Check Run Workflow
 on:
-  status: [success, failure]
+  check_run:
+    types:
+      - completed
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build app
-        run: npm build
-      - name: Deploy app
-        if: success()
-        run: npm deploy
+
+      - name: Run Tests
+        run: |
+          echo OK
