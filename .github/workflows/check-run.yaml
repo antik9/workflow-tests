@@ -1,7 +1,7 @@
 name: Check Run Workflow
 on:
   check_run:
-    types: completed
+    types: requested
 
 jobs:
   build:
