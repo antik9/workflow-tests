@@ -1,7 +1,6 @@
 name: Check Run Workflow
 on:
-  check_run:
-    types: requested
+  workflow_dispatch:
 
 jobs:
   build:

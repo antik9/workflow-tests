@@ -1,0 +1,10 @@
+feat: reorder actions
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch feature/check-run-workflow
+# Changes to be committed:
+#	modified:   .github/workflows/check-run.yaml
+#	new file:   .github/workflows/check-suite.yaml
+#	deleted:    .github/workflows/default.yaml
+#
