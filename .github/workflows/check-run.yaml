@@ -1,7 +1,8 @@
-name: Dispatch workflow
+name: Check Run Again
 on:
-  workflow_dispatch:
-    inputs:
+  check_run:
+    types:
+      - triggered
 
 jobs:
   build:
@@ -10,4 +11,4 @@ jobs:
     steps:
       - name: Run Tests
         run: |
-          echo dispatch workflow
+          echo check run
