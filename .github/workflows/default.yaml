@@ -1,6 +1,7 @@
 name: Dispatch workflow
 on:
   workflow_dispatch:
+    inputs:
 
 jobs:
   build:
