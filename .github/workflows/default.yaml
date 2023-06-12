@@ -1,4 +1,4 @@
-name: Check Run Workflow
+name: Dispatch workflow
 on:
   workflow_dispatch:
 
